@@ -1,5 +1,5 @@
 # Nombre del script a cerrar
-$proc = "opera.exe"  # Cambia esto al nombre de tu script
+$proc = "explorer.exe"  # Cambia esto al nombre de tu script
 
 # Buscar procesos que ejecutan el script
 $procesos = Get-Process | Where-Object { $_.MainModule.FileName -like "*\$proc" }
