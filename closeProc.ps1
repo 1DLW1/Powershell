@@ -1,14 +1,14 @@
-# Nombre del script a cerrar
-$proc = "explorer.exe"  # Cambia esto al nombre de tu script
+#Name of the proccess 
+$proc = "explorer.exe"  
 
-# Buscar procesos que ejecutan el script
+#Search proccess
 $procesos = Get-Process | Where-Object { $_.MainModule.FileName -like "*\$proc" }
 
-# Verificar si se encontraron procesos
+#Verify the locate proccess
 if ($procesos.Count -gt 0) {
-    # Detener los procesos encontrados
+    #Stop the locate proccess
     $procesos | ForEach-Object { Stop-Process -Id $_.Id -Force }
-    Write-Host "Se cerraron correctamente los procesos que ejecutaban $proc"
+    Write-Host "Proccess $proc is terminated"
 } else {
-    Write-Host "No se encontraron procesos que ejecutaran $proc"
+    Write-Host "There is no proccess with the name $proc"
 }
